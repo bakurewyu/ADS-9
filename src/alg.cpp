@@ -4,6 +4,7 @@
 #include  <locale>
 #include  <cstdlib>
 #include <algorithm>
+#include <memory>
 #include  "tree.h"
 
 PMTree::PMTree(const std::vector<char>& input) : original(input) {
@@ -28,7 +29,8 @@ void PMTree::build(std::shared_ptr<PMNode> node, std::vector<char> remaining) {
     }
 }
 
-void dfs(std::shared_ptr<PMNode> node, std::vector<char>& path, std::vector<std::vector<char>>& result) {
+void dfs(std::shared_ptr<PMNode> node, std::vector<char>& path, 
+    std::vector<std::vector<char>>& result) {
     if (node->value != '*') path.push_back(node->value);
 
     if (node->children.empty()) {
@@ -56,7 +58,8 @@ std::vector<char> getPerm1(PMTree& tree, int num) {
     return perms[num - 1];
 }
 
-bool getNthPath(std::shared_ptr<PMNode> node, int& n, std::vector<char>& path, std::vector<char>& result) {
+bool getNthPath(std::shared_ptr<PMNode> node, int& n, 
+    std::vector<char>& path, std::vector<char>& result) {
     if (node->value != '*') path.push_back(node->value);
 
     if (node->children.empty()) {
