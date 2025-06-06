@@ -1,5 +1,5 @@
 // Copyright 2022 NNTU-CS
-#include  <memory>
+#include <vector>
 #include  <iostream>
 #include  <fstream>
 #include  <locale>
