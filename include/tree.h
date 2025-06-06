@@ -6,21 +6,21 @@
 #include <memory>
 
 class PMNode {
-public:
+ public:
     char value;
     std::vector<std::shared_ptr<PMNode>> children;
 
-    PMNode(char val) : value(val) {}
+    explicit PMNode(char val) : value(val) {}
 };
 
 class PMTree {
-public:
+ public:
     std::shared_ptr<PMNode> root;
     std::vector<char> original;
 
-    PMTree(const std::vector<char>& input);
+    explicit PMTree(const std::vector<char>& input);
 
-private:
+ private:
     void build(std::shared_ptr<PMNode> node, std::vector<char> remaining);
 };
 
